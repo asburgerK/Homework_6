@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 public enum Type
 {
     Checking,
@@ -7,22 +8,27 @@ public enum Type
 
 public class  BankAccount
 {
+
+    private static  int counteId = 0;
+
     private int number;
     private double balance;
     private Type accountType;
 
-    public BankAccount(int number, double balance, Type type)
-    { 
-        this.number = number;
+    private static int GenerateNumber()
+    {
+        return ++counteId;
+    }
+    public BankAccount(double balance, Type type)
+    {
+        //this.number = number;
+        this.number = GenerateNumber();
         this.balance = balance;
         this.accountType = type;
     }
 
 
-    public void SetNumber(int number)
-    {
-        this.number = number;
-    }
+    
 
     public int GetNumber()
     {
@@ -63,10 +69,10 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        BankAccount account1 = new BankAccount(12345, 1000.0, Type.Checking);
+        BankAccount account1 = new BankAccount( 1000.0, Type.Checking);
         account1.Print();
         Console.WriteLine();
-        BankAccount account2 = new BankAccount(67890, 5000.0, Type.Savings);
+        BankAccount account2 = new BankAccount(5000.0, Type.Savings);
         account2.Print();
     }
 }
