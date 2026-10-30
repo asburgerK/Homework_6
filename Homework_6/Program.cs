@@ -6,10 +6,10 @@ public enum Type
     Savings
 }
 
-public class  BankAccount
+public class BankAccount
 {
 
-    private static  int counteId = 0;
+    private static int counteId = 0;
 
     private int number;
     private double balance;
@@ -28,14 +28,30 @@ public class  BankAccount
     }
 
 
-    
+    public void AddMoney(double amount)
+    {
+        this.balance += amount;
+    }
+
+    public void WithdrawMoney(double amount)
+    {
+        if (amount <= this.balance)
+        {
+            this.balance -= amount;
+        }
+        else
+        {
+            Console.WriteLine("Вы нищий :(");
+        }
+    }
 
     public int GetNumber()
     {
         return this.number;
     }
 
-    public void SetBalance(double balance) {
+    public void SetBalance(double balance)
+    {
         this.balance = balance;
     }
 
@@ -69,10 +85,16 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        BankAccount account1 = new BankAccount( 1000.0, Type.Checking);
+        BankAccount account1 = new BankAccount(1000.0, Type.Checking);
         account1.Print();
         Console.WriteLine();
         BankAccount account2 = new BankAccount(5000.0, Type.Savings);
         account2.Print();
+
+        account1.AddMoney(500.0);
+        account1.Print();
+        account2.WithdrawMoney(10000.0);
+
+
     }
 }
