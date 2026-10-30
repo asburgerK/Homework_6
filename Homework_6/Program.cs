@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Security.Principal;
-
 public enum Type
 {
     Checking,
@@ -11,13 +9,13 @@ public class  BankAccount
 {
     private int number;
     private double balance;
-    private Type type;
+    private Type accountType;
 
     public BankAccount(int number, double balance, Type type)
     { 
         this.number = number;
         this.balance = balance;
-        this.type = type;
+        this.accountType = type;
     }
 
 
@@ -40,21 +38,21 @@ public class  BankAccount
         return this.balance;
     }
 
-    public void SetType(Type type)
+    public void SetType(Type accountType)
     {
-        this.type = type;
+        this.accountType = accountType;
     }
 
     public Type GetType()
     {
-        return this.type;
+        return this.accountType;
     }
 
     public void Print()
     {
         Console.WriteLine("Account Number: " + this.number);
         Console.WriteLine("Account Balance: " + this.balance);
-        Console.WriteLine("Account Type: " + this.type);
+        Console.WriteLine("Account Type: " + this.accountType);
     }
 
 
