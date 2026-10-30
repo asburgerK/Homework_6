@@ -1,0 +1,61 @@
+﻿using System;
+using System.Security.Principal;
+
+public enum Type
+{
+    Checking,
+    Savings
+}
+
+public class  BankAccount
+{
+    private int number;
+    private double balance;
+    private Type type;
+
+    public BankAccount(int number, double balance, Type type)
+    { 
+        this.number = number;
+        this.balance = balance;
+        this.type = type;
+    }
+
+
+    public void SetNumber(int number)
+    {
+        this.number = number;
+    }
+
+    public int GetNumber()
+    {
+        return this.number;
+    }
+
+    public void SetBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public double GetBalance()
+    {
+        return this.balance;
+    }
+
+    public void SetType(Type type)
+    {
+        this.type = type;
+    }
+
+    public Type GetType()
+    {
+        return this.type;
+    }
+
+    public void Print()
+    {
+        Console.WriteLine("Account Number: " + this.number);
+        Console.WriteLine("Account Balance: " + this.balance);
+        Console.WriteLine("Account Type: " + this.type);
+    }
+
+
+}
