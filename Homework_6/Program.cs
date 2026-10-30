@@ -57,3 +57,16 @@ public class  BankAccount
 
 
 }
+
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        BankAccount account1 = new BankAccount(12345, 1000.0, Type.Checking);
+        account1.Print();
+        Console.WriteLine();
+        BankAccount account2 = new BankAccount(67890, 5000.0, Type.Savings);
+        account2.Print();
+    }
+}
